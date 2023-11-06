@@ -63,7 +63,7 @@ export const BarChart = ({ parentData }) => {
       svg.select(".bar-x-axis").call(xAxis);
 
       svg
-        .select("..bar-plot-area")
+        .select(".bar-plot-area")
         .attr("fill", "steelblue")
         .selectAll(".bar")
         .data(data)
@@ -85,7 +85,7 @@ export const BarChart = ({ parentData }) => {
 
   return (
     <svg ref={ref} style={{ width: "540px", height: "240px" }}>
-      <g className='.bar-plot-area' />
+      <g className='bar-plot-area' />
       <g className='bar-x-axis' />
     </svg>
   );
