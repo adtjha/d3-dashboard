@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useDebugValue, useEffect, useState } from "react";
 import * as d3 from "d3";
 import { useD3 } from "./useD3";
 
@@ -6,8 +6,11 @@ export const LineChart = ({ parentData }) => {
   const [data, setData] = useState(parentData);
 
   useEffect(() => {
-    setData([...parentData]);
+    const newData = [...parentData];
+    setData(newData);
   }, [parentData]);
+
+  useDebugValue(data);
 
   const ref = useD3(
     (svg) => {
@@ -75,7 +78,7 @@ export const LineChart = ({ parentData }) => {
         .style("stroke-linecap", "round")
         .style("stroke-width", "3");
     },
-    [data]
+    [parentData]
   );
 
   return (

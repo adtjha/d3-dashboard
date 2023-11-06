@@ -9,7 +9,7 @@ export const StackedBarChart = ({ parentData }) => {
     (svg) => {
       const height = 240;
       const width = 540;
-      const margin = { top: 20, right: 0, bottom: 20, left: 0 };
+      const margin = { top: 20, right: 0, bottom: 30, left: 0 };
 
       const x = d3
         .scaleBand()
@@ -44,20 +44,6 @@ export const StackedBarChart = ({ parentData }) => {
                 ][i]
             )
         );
-
-      svg.select(".stacked-x-axis").select("path").style("opacity", 0);
-      svg
-        .select(".stacked-x-axis")
-        .selectAll(".tick")
-        .select("line")
-        .style("opacity", 0);
-
-      svg
-        .select(".stacked-x-axis")
-        .selectAll(".tick")
-        .select("text")
-        .style("font-size", "14px")
-        .style("color", "#bbb");
 
       svg.select(".stacked-x-axis").call(xAxis);
 

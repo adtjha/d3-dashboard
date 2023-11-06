@@ -1,6 +1,6 @@
 import { KeyboardArrowDownRounded } from '@mui/icons-material';
 import { Box, Button, Card, CardContent, Divider, Menu, MenuItem, Typography } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { LineChart } from './LineChart';
 
 const Button1 = ({ data, setdata }) => {
@@ -121,7 +121,6 @@ export const Chart1 = () => {
         { year: 18, sales: 8217000 },
     ]);
 
-
     return (<Card sx={{ minHeight: '340px' }}>
         <CardContent sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'nowrap', flexDirection: 'row' }}>
             <Typography fontWeight={'700'} sx={{
@@ -136,6 +135,6 @@ export const Chart1 = () => {
             </Box>
         </CardContent>
         <Divider></Divider>
-        <LineChart parentData={data} />
+        {data?.length > 0 && <LineChart parentData={data} />}
     </Card>);
 };

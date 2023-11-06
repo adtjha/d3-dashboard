@@ -15,3 +15,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+g.bar-x-axis > path {
+  opacity: 0;
+}
+g.stacked-x-axis > path {
+  opacity: 0;
+}
+
+g.bar-x-axis > g.tick > line {
+  opacity: 0;
+}
+g.stacked-x-axis > g.tick > line {
+  opacity: 0;
+}
+
+g.bar-x-axis > g.tick > text {
+  color: #bbb;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+}
+g.stacked-x-axis > g.tick > text {
+  color: #bbb;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+}

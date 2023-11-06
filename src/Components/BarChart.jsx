@@ -45,21 +45,6 @@ export const BarChart = ({ parentData }) => {
             .tickSizeOuter(0)
         );
 
-      svg.select(".bar-x-axis").select("path").style("opacity", 0);
-      svg
-        .select(".bar-x-axis")
-        .selectAll(".tick")
-        .select("line")
-        .style("opacity", 0);
-
-      svg
-        .select(".bar-x-axis")
-        .selectAll(".tick")
-        .select("text")
-        .style("font-size", "14px")
-        .style("font-family", "'Poppins', sans-serif")
-        .style("color", "#bbb");
-
       svg.select(".bar-x-axis").call(xAxis);
 
       svg
