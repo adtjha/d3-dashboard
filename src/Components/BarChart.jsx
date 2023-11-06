@@ -45,42 +45,25 @@ export const BarChart = ({ parentData }) => {
             .tickSizeOuter(0)
         );
 
-      // const y1Axis = (g) =>
-      //   g
-      //     .attr("transform", `translate(${margin.left},0)`)
-      //     .style("color", "#444")
-      //     .call(d3.axisLeft(y1).ticks(null, "s"))
-      //     .call((g) => g.select(".domain").remove())
-      //     .call((g) =>
-      //       g
-      //         .append("text")
-      //         .attr("x", -margin.left)
-      //         .attr("y", 10)
-      //         .attr("fill", "currentColor")
-      //         .attr("text-anchor", "start")
-      //         .text(data.y1)
-      //     );
-
-      svg.select(".x-axis").select("path").style("opacity", 0);
+      svg.select(".bar-x-axis").select("path").style("opacity", 0);
       svg
-        .select(".x-axis")
+        .select(".bar-x-axis")
         .selectAll(".tick")
         .select("line")
         .style("opacity", 0);
 
       svg
-        .select(".x-axis")
+        .select(".bar-x-axis")
         .selectAll(".tick")
         .select("text")
         .style("font-size", "14px")
         .style("font-family", "'Poppins', sans-serif")
         .style("color", "#bbb");
 
-      svg.select(".x-axis").call(xAxis);
-      // svg.select(".y-axis").call(y1Axis);
+      svg.select(".bar-x-axis").call(xAxis);
 
       svg
-        .select(".plot-area")
+        .select("..bar-plot-area")
         .attr("fill", "steelblue")
         .selectAll(".bar")
         .data(data)
@@ -102,9 +85,8 @@ export const BarChart = ({ parentData }) => {
 
   return (
     <svg ref={ref} style={{ width: "540px", height: "240px" }}>
-      <g className='plot-area' />
-      <g className='x-axis' />
-      {/* <g className='y-axis' /> */}
+      <g className='.bar-plot-area' />
+      <g className='bar-x-axis' />
     </svg>
   );
 };

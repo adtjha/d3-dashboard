@@ -45,26 +45,24 @@ export const StackedBarChart = ({ parentData }) => {
             )
         );
 
-      svg.select(".x-axis").select("path").style("opacity", 0);
+      svg.select("..stacked-x-axis").select("path").style("opacity", 0);
       svg
-        .select(".x-axis")
+        .select("..stacked-x-axis")
         .selectAll(".tick")
         .select("line")
         .style("opacity", 0);
 
       svg
-        .select(".x-axis")
+        .select("..stacked-x-axis")
         .selectAll(".tick")
         .select("text")
         .style("font-size", "14px")
         .style("color", "#bbb");
 
-      svg.select(".x-axis").call(xAxis);
-      // svg.select(".y-axis").call(y1Axis);
+      svg.select("..stacked-x-axis").call(xAxis);
 
       svg
-        .select(".plot-area")
-        // .selectAll(".bar-group")
+        .select("..stacked-plot-area")
         .selectAll(".bar-sales")
         .data(data)
         .enter()
@@ -78,8 +76,7 @@ export const StackedBarChart = ({ parentData }) => {
         .attr("rx", "4");
 
       svg
-        .select(".plot-area")
-        // .selectAll(".bar-group2")
+        .select("..stacked-plot-area")
         .selectAll(".bar-sales2")
         .data(data)
         .enter()
@@ -101,9 +98,8 @@ export const StackedBarChart = ({ parentData }) => {
 
   return (
     <svg ref={ref} style={{ width: "540px", height: "240px" }}>
-      <g className='plot-area' />
-      <g className='x-axis' />
-      {/* <g className='y-axis' /> */}
+      <g className='.stacked-plot-area' />
+      <g className='.stacked-x-axis' />
     </svg>
   );
 };
