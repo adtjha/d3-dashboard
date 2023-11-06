@@ -5,6 +5,10 @@ import { useD3 } from "./useD3";
 export const LineChart = ({ parentData }) => {
   const [data, setData] = useState(parentData);
 
+  useEffect(() => {
+    setData([...parentData]);
+  }, [parentData]);
+
   const ref = useD3(
     (svg) => {
       const height = 240;
@@ -71,13 +75,8 @@ export const LineChart = ({ parentData }) => {
         .style("stroke-linecap", "round")
         .style("stroke-width", "3");
     },
-    [data.length]
+    [data]
   );
-
-  useEffect(() => {
-    console.log("Change Occured", parentData);
-    setData(parentData);
-  }, [parentData]);
 
   return (
     <svg ref={ref} style={{ width: "540px", height: "240px" }}>

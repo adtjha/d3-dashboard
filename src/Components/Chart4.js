@@ -43,7 +43,7 @@ export const Chart4 = () => {
             <TableBody>
                 {rows.map((row) => (
                     <TableRow
-                        key={row.name}
+                        key={row.account}
                         sx={{ border: 0 }}
                     >
                         <TableCell sx={{
