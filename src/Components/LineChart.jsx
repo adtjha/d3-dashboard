@@ -68,10 +68,14 @@ export const LineChart = ({ parentData }) => {
         .y((d) => y1(d.sales))
         .curve(d3.curveBasis);
 
+      svg.selectAll("path").remove();
+
       svg
-        .select(".plot-area")
+        .selectAll(".plot-area")
+        .data([data])
+        .join("path")
+        .attr("d", line)
         .attr("fill", "steelblue")
-        .attr("d", line(data))
         .attr("class", "line")
         .style("fill", "none")
         .style("stroke", "#47b747")
